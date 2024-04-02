@@ -3,6 +3,7 @@ import { useState } from 'react';
 import css from "./container.module.css";
 import LoginHead from './loginHead';
 import InpDiv from './inpDiv';
+import "./signin.css";
 
 function LoginContainer(){
     let [tab,switchTab]=useState(true);
