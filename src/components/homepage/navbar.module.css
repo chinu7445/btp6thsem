@@ -1,0 +1,16 @@
+.myNavbar {
+    background-color: rgba(23, 2, 38, 0.784) !important;
+    z-index: 2;
+}
+
+.loginButtons {
+    margin: 1% 2%;
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+}
+
+.toggleSidebar {
+    width: 3%;
+    height: 5%;
+}

@@ -10,7 +10,7 @@ function LoginContainer(){
   function handleTab(){
     switchTab(!tab);
   }
-    return<>
+    return <div className='signInDiv'>
     <div className={`${css.loginContainer}`}>
     <LoginHead handleTab={handleTab} tab={tab}></LoginHead>
     <form className={`${css.loginForm}`} action="">
@@ -24,7 +24,7 @@ function LoginContainer(){
       </div>
     </form>
   </div>
-    </>
+  </div>
 }
 
 export default LoginContainer;
