@@ -1,0 +1,38 @@
+.trendingBook{
+    width: 23%;
+    margin: 1%;
+    /* width: 150px; */
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    max-height: 350px;
+    min-width: 177px;
+    flex-grow: 0;
+}
+
+.trendingBookBody{
+    height: 53%;
+    margin: 1%;
+    width: 97%;
+}
+
+.trendingBookBookImg{
+    height: 45%;
+    width: 98%;
+}
+
+.bookName{
+    height: 10%;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.bookDescription{
+    height: 65%;
+    width: 100%;
+}
+
+.bookOpenButton{
+    height: 10%;
+    width: 100%;
+}

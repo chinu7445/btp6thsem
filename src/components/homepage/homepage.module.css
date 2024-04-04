@@ -1,4 +1,16 @@
-.sidebar{
-    width: 20%;
+.slidebarAndOtherFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     height: 100%;
+    width: 100%;
+}
+
+.CentralItems{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    height: 100%;
+    margin: 1%;
+    flex-wrap: nowrap;
 }
