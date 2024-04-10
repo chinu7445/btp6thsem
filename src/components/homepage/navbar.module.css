@@ -9,6 +9,11 @@
 .loginButtons {
     margin: 1% 2%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     width: 15%;
+}
+
+.Links{
+    text-decoration: none;
+    color: black;
 }
