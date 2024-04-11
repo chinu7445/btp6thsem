@@ -1,0 +1,12 @@
+.profileIconContainer{
+    background-color: inherit;
+}
+.profileIconContainer .btn{
+    /* background-color: inherit; */
+    --bs-btn-bg:inherit;
+}
+
+.profileIconDiv{
+    width: 13%;
+    height: 80%;
+}

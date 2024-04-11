@@ -6,14 +6,21 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import css from "./navbar.module.css";
 import { useNavigate,NavLink } from "react-router-dom";
+import axios from "axios";
+import { useUserContext } from "../../store/context";
+import ProfileIcon from "../Profile/profileIcon";
 
 
 function MyNavbar({handleSidebarToggle}) {
   const navigate=useNavigate();
+  let value="";
+  function handleSearch(){
+    const searchedList=axios.post("https://localhost:8080/api/search?search="+value);
+  }
+  let {loginStatus}=useUserContext();
   return (
     <>
       <Navbar expand="lg" className={`bg-body-tertiary ${css.myNavbar}`}>
-        {/* <div > */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -27,7 +34,6 @@ function MyNavbar({handleSidebarToggle}) {
           <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5m-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z" />
           <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5z" />
         </svg>
-        {/* </div> */}
         <Container fluid>
           <Navbar.Brand href="#">Navbar</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -60,11 +66,11 @@ function MyNavbar({handleSidebarToggle}) {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button onClick={handleSearch} variant="outline-success">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
-        <div className={`text-end ${css.loginButtons}`}>
+        {!loginStatus ? <div className={`text-end ${css.loginButtons}`}>
           <button
             onClick={() => navigate("/login")}
             type="button"
@@ -72,7 +78,7 @@ function MyNavbar({handleSidebarToggle}) {
           >
             Login
           </button>
-        </div>
+        </div> :<ProfileIcon></ProfileIcon>}
       </Navbar>
     </>
   );

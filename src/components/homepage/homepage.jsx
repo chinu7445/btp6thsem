@@ -1,22 +1,22 @@
-import MyNavbar from "./navbar";
-import Sidebar from "./sidebar";
+
 import css from "./homepage.module.css";
 import { useState } from "react";
 import Carousels from "./carousals";
 import TrendingBookQueue from "./trendingBookQueue";
 import AllBooks from "./allBooks";
+import { useUserContext } from "../../store/context";
+import { useEffect } from "react";
 
 function Homepage() {
-  let [sidebarToggle, setSidebarToggle] = useState(true);
-  function handleSidebarToggle() {
-    setSidebarToggle(!sidebarToggle);
-  }
+
+  let {getUser,updateUserState}=useUserContext();
+
+  useEffect(()=>{
+    getUser();
+  },[]);
 
   return (
     <>
-      <MyNavbar handleSidebarToggle={handleSidebarToggle}></MyNavbar>
-      <div className={`${css.slidebarAndOtherFlex}`}>
-        {sidebarToggle && <Sidebar></Sidebar>}
         <div className={`${css.CentralItems}`}>
           <Carousels></Carousels>
           <h3 style={{ marginLeft: "7%", marginTop: "3%" }}>Trending</h3>
@@ -32,7 +32,6 @@ function Homepage() {
             </div>
           </footer>
         </div>
-      </div>
     </>
   );
 }

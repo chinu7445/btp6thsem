@@ -24,7 +24,7 @@ function LoginContainer() {
       response = axios.post("http://localhost:8080/api/login", userInfo);
       if (response.userToken) {
         localStorage.setItem("token", response.userToken);
-        let userData;
+        // let userData;
         navigate('/');
       } else {
         alert("Invalid username or password please try again");
